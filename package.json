@@ -1,0 +1,77 @@
+{
+  "name": "systray",
+  "version": "1.0.0",
+  "description": "An systray libray for nodejs",
+  "main": "lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "scripts": {
+    "build": "run-s clean build:lib doc && git add -A",
+    "build:lib": "tsc && cross-env NODE_ENV=production babel -x .es6,.js,.es,.jsx,.ts -s true -d ./lib -D ./src",
+    "clean": "del ./lib/**",
+    "lint": "tslint ./src/** --type-check -p ./tsconfig.json",
+    "build:test": "del ./test-dist && cross-env NODE_ENV=production babel -x .es6,.js,.es,.jsx,.ts -s true -d ./test-dist -D ./test",
+    "test": "run-p build:lib build:test && cross-env NODE_ENV=development DEBUG=systray* ava -s",
+    "doc": "typedoc --theme minimal --out ./docs ./src",
+    "cover": "cross-env NODE_ENV=development nyc ava"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "pre-commit": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaaack/immuter.git"
+  },
+  "keywords": [
+    "systray",
+    "tray",
+    "gui"
+  ],
+  "author": "zaaack",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zaaack/immuter/issues"
+  },
+  "homepage": "https://github.com/zaaack/immuter#readme",
+  "devDependencies": {
+    "@types/debug": "^0.0.30",
+    "@types/fs-extra": "^4.0.2",
+    "@types/node": "^8.0.28",
+    "ava": "^0.22.0",
+    "babel-cli": "v7.0.0-beta.0",
+    "babel-eslint": "^8.0.0",
+    "babel-plugin-syntax-typescript": "^7.0.0-alpha.19",
+    "babel-plugin-transform-runtime": "^v7.0.0-beta.0",
+    "babel-preset-es2015": "^v7.0.0-beta.0",
+    "babel-preset-es2016": "^v7.0.0-beta.0",
+    "babel-preset-es2017": "^v7.0.0-beta.0",
+    "babel-preset-stage-0": "^v7.0.0-beta.0",
+    "babel-preset-typescript": "^v7.0.0-beta.0",
+    "cross-env": "^5.0.5",
+    "del-cli": "^1.1.0",
+    "npm-run-all": "^4.0.2",
+    "nyc": "^11.2.1",
+    "pre-commit": "^1.2.2",
+    "tslint": "^5.7.0",
+    "tslint-config-standard": "^6.0.1",
+    "typedoc": "^0.8.0",
+    "typescript": "^2.5.2"
+  },
+  "dependencies": {
+    "babel-runtime": "^v7.0.0-beta.0",
+    "debug": "^3.0.1",
+    "fs-extra": "^4.0.2"
+  },
+  "ava": {
+    "files": [
+      "test-dist/**/*.test.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
+  }
+}

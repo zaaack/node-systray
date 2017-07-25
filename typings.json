@@ -1,0 +1,5 @@
+{
+  "name": "systray",
+  "main": "lib/index.d.ts",
+  "version": "1.0.0"
+}

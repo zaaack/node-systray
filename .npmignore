@@ -1,0 +1,12 @@
+docs/
+yarn-error.log
+.nyc_output
+coverage
+.DS_Store
+node_modules
+.eslintrc.json
+.eslintignore
+.travis.yml
+.editorconfig
+.gitignore
+test-dist

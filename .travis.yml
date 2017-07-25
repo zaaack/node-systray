@@ -1,0 +1,9 @@
+language: node_js
+cache: yarn
+node_js:
+  - '6'
+script:
+  - node --version
+  - yarn --version
+  - yarn run flow && yarn run lint && yarn run test
+sudo: false
