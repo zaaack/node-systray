@@ -924,8 +924,54 @@ img { max-width: 100%; }
 yarn add systray
 </code></pre>
 			<h2 id="usage">Usage</h2>
-			<pre><code class="lang-js"><span class="hljs-keyword">import</span> SysTray <span class="hljs-keyword">from</span> <span class="hljs-string">'systray'</span>
+			<pre><code class="lang-ts"><span class="hljs-keyword">import</span> SysTray <span class="hljs-keyword">from</span> <span class="hljs-string">'systray'</span>
+
+<span class="hljs-keyword">const</span> systray = <span class="hljs-keyword">new</span> SysTray({
+    menu: {
+        icon: <span class="hljs-string">"&lt;base64 image string&gt;"</span>,
+        title: <span class="hljs-string">"标题"</span>,
+        tooltip: <span class="hljs-string">"Tips"</span>,
+        items: [{
+            title: <span class="hljs-string">"aa"</span>,
+            tooltip: <span class="hljs-string">"bb"</span>,
+            checked: <span class="hljs-literal">true</span>, <span class="hljs-comment">// checked not implemented on Linux yet.</span>
+            enabled: <span class="hljs-literal">true</span>
+        }, {
+            title: <span class="hljs-string">"aa2"</span>,
+            tooltip: <span class="hljs-string">"bb"</span>,
+            checked: <span class="hljs-literal">false</span>,
+            enabled: <span class="hljs-literal">true</span>
+        }, {
+            title: <span class="hljs-string">"Exit"</span>,
+            tooltip: <span class="hljs-string">"bb"</span>,
+            checked: <span class="hljs-literal">false</span>,
+            enabled: <span class="hljs-literal">true</span>
+        }]
+    },
+    debug: <span class="hljs-literal">false</span>,
+    copyDir: <span class="hljs-literal">true</span>, <span class="hljs-comment">// copy go tray binary to outside directory, useful for packing tool like pkg.</span>
+})
+
+systray.onClick(<span class="hljs-function"><span class="hljs-params">action</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span> (action.seq_id === <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">if</span> (action.seq_id === <span class="hljs-number">0</span>) {
+            systray.sendAction({
+                <span class="hljs-keyword">type</span>: <span class="hljs-string">'update-item'</span>,
+                item: {
+                ...action.item,
+                checked: !action.item.checked,
+                },
+                seq_id: action.seq_id,
+            })
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (action.seq_id === <span class="hljs-number">2</span>) {
+            systray.kill()
+        }
+    }
+})
 </code></pre>
+			<p>For more API info please see <a href="https://zaaack.github.io/node-systray/">https://zaaack.github.io/node-systray/</a></p>
+			<h2 id="license">License</h2>
+			<p>MIT</p>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">

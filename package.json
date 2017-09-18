@@ -13,7 +13,7 @@
     "lint": "tslint ./src/** --type-check -p ./tsconfig.json",
     "build:test": "del ./test-dist && cross-env NODE_ENV=production babel -x .es6,.js,.es,.jsx,.ts -s true -d ./test-dist -D ./test",
     "test": "run-p build:lib build:test && cross-env NODE_ENV=development DEBUG=systray* ava -s",
-    "doc": "typedoc --theme minimal --out ./docs ./src",
+    "doc": "typedoc --theme minimal --out ./docs ./src && touch ./docs/.nojekyll",
     "cover": "cross-env NODE_ENV=development nyc ava"
   },
   "engines": {
