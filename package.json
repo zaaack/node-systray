@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "An systray libray for nodejs",
   "main": "lib/index.js",
-  "typings": "./lib/index.d.ts",
-  "module": "es/index.js",
-  "jsnext:main": "es/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "build": "run-s clean build:lib doc && git add -A",
     "build:lib": "tsc && cross-env NODE_ENV=production babel -x .es6,.js,.es,.jsx,.ts -s true -d ./lib -D ./src",
@@ -24,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zaaack/immuter.git"
+    "url": "git+https://github.com/zaaack/node-systray.git"
   },
   "keywords": [
     "systray",
@@ -34,9 +32,9 @@
   "author": "zaaack",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zaaack/immuter/issues"
+    "url": "https://github.com/zaaack/node-systray/issues"
   },
-  "homepage": "https://github.com/zaaack/immuter#readme",
+  "homepage": "https://github.com/zaaack/node-systray#readme",
   "devDependencies": {
     "@types/debug": "^0.0.30",
     "@types/fs-extra": "^4.0.2",
