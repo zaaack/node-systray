@@ -955,19 +955,20 @@ yarn add systray
 })
 
 systray.onClick(<span class="hljs-function"><span class="hljs-params">action</span> =&gt;</span> {
-    <span class="hljs-keyword">if</span> (action.seq_id === <span class="hljs-number">1</span>) {
-        <span class="hljs-keyword">if</span> (action.seq_id === <span class="hljs-number">0</span>) {
-            systray.sendAction({
-                <span class="hljs-keyword">type</span>: <span class="hljs-string">'update-item'</span>,
-                item: {
-                ...action.item,
-                checked: !action.item.checked,
-                },
-                seq_id: action.seq_id,
-            })
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (action.seq_id === <span class="hljs-number">2</span>) {
-            systray.kill()
-        }
+    <span class="hljs-keyword">if</span> (action.seq_id === <span class="hljs-number">0</span>) {
+        systray.sendAction({
+            <span class="hljs-keyword">type</span>: <span class="hljs-string">'update-item'</span>,
+            item: {
+            ...action.item,
+            checked: !action.item.checked,
+            },
+            seq_id: action.seq_id,
+        })
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (action.seq_id === <span class="hljs-number">1</span>) {
+        <span class="hljs-comment">// open the url</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'open the url'</span>, action)
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (action.seq_id === <span class="hljs-number">2</span>) {
+        systray.kill()
     }
 })
 </code></pre>

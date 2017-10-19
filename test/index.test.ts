@@ -28,8 +28,7 @@ test('systray debug is ok', async t => {
   await new Promise(resolve => systray.onReady(resolve))
   let {code, signal} = await new Promise<{code: number | null, signal: string | null}>(resolve => systray.onExit((code, signal) => resolve({code, signal})))
   console.log('code', code, 'signal', signal)
-  t.is(code, null)
-  t.is(signal, 'SIGTERM')
+  t.is(code, 0)
 })
 
 test('systray release is ok', async t => {
@@ -52,8 +51,8 @@ test('systray release is ok', async t => {
   await new Promise(resolve => systray.onReady(resolve))
   let {code, signal} = await new Promise<{code: number | null, signal: string | null}>(resolve => systray.onExit((code, signal) => resolve({code, signal})))
   console.log('code', code, 'signal', signal)
-  t.is(code, null)
-  t.is(signal, 'SIGTERM')
+  t.is(code, 0)
+  t.is(signal, null)
 })
 
 test('systray copyDir is ok', async t => {
@@ -83,6 +82,5 @@ test('systray copyDir is ok', async t => {
   await new Promise(resolve => systray.onReady(resolve))
   let {code, signal} = await new Promise<{code: number | null, signal: string | null}>(resolve => systray.onExit((code, signal) => resolve({code, signal})))
   console.log('code', code, 'signal', signal)
-  t.is(code, null)
-  t.is(signal, 'SIGTERM')
+  t.is(code, 0)
 })
