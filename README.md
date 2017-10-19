@@ -65,5 +65,9 @@ systray.onClick(action => {
 
 For more API info please see https://zaaack.github.io/node-systray/
 
+Here is also a demo project you might want to check out, it shows how to integrate this library with [opn](https://github.com/sindresorhus/opn), [node-notifier](https://github.com/mikaelbr/node-notifier) and [node-packer](https://github.com/pmq20/node-packer):
+
+> https://github.com/zaaack/aria2c-node-gui
+
 ## License
 MIT
