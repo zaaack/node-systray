@@ -928,13 +928,15 @@ yarn add systray
 
 <span class="hljs-keyword">const</span> systray = <span class="hljs-keyword">new</span> SysTray({
     menu: {
+        <span class="hljs-comment">// you should using .png icon in macOS/Linux, but .ico format in windows</span>
         icon: <span class="hljs-string">"&lt;base64 image string&gt;"</span>,
         title: <span class="hljs-string">"标题"</span>,
         tooltip: <span class="hljs-string">"Tips"</span>,
         items: [{
             title: <span class="hljs-string">"aa"</span>,
             tooltip: <span class="hljs-string">"bb"</span>,
-            checked: <span class="hljs-literal">true</span>, <span class="hljs-comment">// checked not implemented on Linux yet.</span>
+            <span class="hljs-comment">// checked is implement by plain text in linux</span>
+            checked: <span class="hljs-literal">true</span>,
             enabled: <span class="hljs-literal">true</span>
         }, {
             title: <span class="hljs-string">"aa2"</span>,

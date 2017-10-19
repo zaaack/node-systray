@@ -17,13 +17,15 @@ import SysTray from 'systray'
 
 const systray = new SysTray({
     menu: {
+        // you should using .png icon in macOS/Linux, but .ico format in windows
         icon: "<base64 image string>",
         title: "标题",
         tooltip: "Tips",
         items: [{
             title: "aa",
             tooltip: "bb",
-            checked: true, // checked not implemented on Linux yet.
+            // checked is implement by plain text in linux
+            checked: true,
             enabled: true
         }, {
             title: "aa2",

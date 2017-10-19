@@ -85,6 +85,18 @@ const getTrayBinPath = (debug: boolean = false, copyDir: boolean | string = fals
   }
   return binPath
 }
+const CHECK_STR = ' (√)'
+function updateCheckedInLinux(item: MenuItem) {
+  if (process.platform !== 'linux') {
+    return item
+  }
+  if (item.checked) {
+    item.title += CHECK_STR
+  } else {
+    item.title = (item.title || '').replace(RegExp(CHECK_STR + '$'), '')
+  }
+  return item
+}
 
 export default class SysTray extends EventEmitter {
   protected _conf: Conf
@@ -100,6 +112,7 @@ export default class SysTray extends EventEmitter {
     this._rl = readline.createInterface({
       input: this._process.stdout,
     })
+    conf.menu.items = conf.menu.items.map(updateCheckedInLinux)
     this._rl.on('line', data => debug('onLine', data))
     this.onReady(() => this.writeLine(JSON.stringify(conf.menu)))
   }
@@ -135,6 +148,18 @@ export default class SysTray extends EventEmitter {
   }
 
   sendAction(action: Action) {
+    switch (action.type) {
+      case 'update-item':
+        action.item = updateCheckedInLinux(action.item)
+        break
+      case 'update-menu':
+        action.menu.items = action.menu.items.map(updateCheckedInLinux)
+        break
+      case 'update-menu-and-item':
+        action.menu.items = action.menu.items.map(updateCheckedInLinux)
+        action.item = updateCheckedInLinux(action.item)
+        break
+    }
     debug('sendAction', action)
     this.writeLine(JSON.stringify(action))
     return this

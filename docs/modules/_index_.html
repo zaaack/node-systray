@@ -943,6 +943,9 @@ img { max-width: 100%; }
 			<a href="_index_.html#updatemenuanditemaction" class="tsd-kind-icon">Update<wbr>Menu<wbr>And<wbr>Item<wbr>Action</a>
 		</li>
 		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="_index_.html#check_str" class="tsd-kind-icon">CHECK_<wbr>STR</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="_index_.html#debug-1" class="tsd-kind-icon">debug</a>
 		</li>
 		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
@@ -950,6 +953,9 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="_index_.html#gettraybinpath" class="tsd-kind-icon">get<wbr>Tray<wbr>Bin<wbr>Path</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="_index_.html#updatecheckedinlinux" class="tsd-kind-icon">update<wbr>Checked<wbr>InLinux</a>
 		</li>
 	</ul>
 </nav>
@@ -983,6 +989,7 @@ img { max-width: 100%; }
 					<section class="tsd-index-section tsd-is-not-exported">
 						<h3>Variables</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_index_.html#check_str" class="tsd-kind-icon">CHECK_<wbr>STR</a></li>
 							<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_index_.html#debug-1" class="tsd-kind-icon">debug</a></li>
 							<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_index_.html#pkg" class="tsd-kind-icon">pkg</a></li>
 						</ul>
@@ -991,6 +998,7 @@ img { max-width: 100%; }
 						<h3>Functions</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_index_.html#gettraybinpath" class="tsd-kind-icon">get<wbr>Tray<wbr>Bin<wbr>Path</a></li>
+							<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_index_.html#updatecheckedinlinux" class="tsd-kind-icon">update<wbr>Checked<wbr>InLinux</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1217,6 +1225,16 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 			<h2>Variables</h2>
 			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+				<a name="check_str" class="tsd-anchor"></a>
+				<h3>CHECK_<wbr>STR</h3>
+				<div class="tsd-signature tsd-kind-icon">CHECK_<wbr>STR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">" (√)"</span><span class="tsd-signature-symbol"> =&nbsp;&quot; (√)&quot;</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in index.ts:88</li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
 				<a name="debug-1" class="tsd-anchor"></a>
 				<h3>debug</h3>
 				<div class="tsd-signature tsd-kind-icon">debug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IDebugger</span><span class="tsd-signature-symbol"> =&nbsp;Debug(pkg.name)</span></div>
@@ -1262,6 +1280,43 @@ img { max-width: 100%; }
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+				<a name="updatecheckedinlinux" class="tsd-anchor"></a>
+				<h3>update<wbr>Checked<wbr>InLinux</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<li class="tsd-signature tsd-kind-icon">update<wbr>Checked<wbr>InLinux<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="_index_.html#menuitem" class="tsd-signature-type">MenuItem</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in index.ts:89</li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>item: <a href="_index_.html#menuitem" class="tsd-signature-type">MenuItem</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>checked<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>enabled<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>tooltip<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
