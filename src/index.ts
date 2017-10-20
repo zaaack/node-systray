@@ -164,8 +164,14 @@ export default class SysTray extends EventEmitter {
     this.writeLine(JSON.stringify(action))
     return this
   }
-
-  kill() {
+  /**
+   * Kill the systray process
+   * @param exitNode exit current node process after systray process is killed, default is true
+   */
+  kill(exitNode = true) {
+    if (exitNode) {
+      this.onExit(() => process.exit(0))
+    }
     this._rl.close()
     this._process.kill()
   }
