@@ -166,7 +166,7 @@ export default class SysTray extends EventEmitter {
   }
   /**
    * Kill the systray process
-   * @param exitNode exit current node process after systray process is killed, default is true
+   * @param exitNode Exit current node process after systray process is killed, default is true
    */
   kill(exitNode = true) {
     if (exitNode) {
