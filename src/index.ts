@@ -108,7 +108,9 @@ export default class SysTray extends EventEmitter {
     super()
     this._conf = conf
     this._binPath = getTrayBinPath(conf.debug, conf.copyDir)
-    this._process = child.spawn(this._binPath)
+    this._process = child.spawn(this._binPath, [], {
+      windowsHide: true
+    })
     this._rl = readline.createInterface({
       input: this._process.stdout,
     })
