@@ -1,6 +1,6 @@
 {
   "name": "systray",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An systray libray for nodejs",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -17,8 +17,7 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "pre-commit": [
-  ],
+  "pre-commit": [],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zaaack/node-systray.git"
