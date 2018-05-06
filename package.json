@@ -1,6 +1,6 @@
 {
   "name": "systray",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An systray libray for nodejs",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -18,7 +18,6 @@
     "node": ">=4.0.0"
   },
   "pre-commit": [
-    "build"
   ],
   "repository": {
     "type": "git",
@@ -38,7 +37,7 @@
   "devDependencies": {
     "@types/debug": "^0.0.30",
     "@types/fs-extra": "^4.0.2",
-    "@types/node": "^8.0.28",
+    "@types/node": "^10.0.4",
     "ava": "^0.22.0",
     "babel-cli": "v7.0.0-beta.0",
     "babel-eslint": "^8.0.0",
