@@ -12,14 +12,13 @@
     "build:test": "del ./test-dist && cross-env NODE_ENV=production babel -x .es6,.js,.es,.jsx,.ts -s true -d ./test-dist -D ./test",
     "test": "run-p build:lib build:test && cross-env NODE_ENV=development DEBUG=systray* ava -s",
     "doc": "typedoc --theme minimal --out ./docs ./src && touch ./docs/.nojekyll",
-    "cover": "cross-env NODE_ENV=development nyc ava"
+    "cover": "cross-env NODE_ENV=development nyc ava",
+    "preversion": "npm run build && git add -A"
   },
   "engines": {
     "node": ">=4.0.0"
   },
-  "pre-commit": [
-    "build"
-  ],
+  "pre-commit": [],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zaaack/node-systray.git"
@@ -38,7 +37,7 @@
   "devDependencies": {
     "@types/debug": "^0.0.30",
     "@types/fs-extra": "^4.0.2",
-    "@types/node": "^8.0.28",
+    "@types/node": "^10.0.4",
     "ava": "^0.22.0",
     "babel-cli": "v7.0.0-beta.0",
     "babel-eslint": "^8.0.0",
@@ -57,7 +56,7 @@
     "tslint": "^5.7.0",
     "tslint-config-standard": "^6.0.1",
     "typedoc": "^0.8.0",
-    "typescript": "^2.5.2"
+    "typescript": "^2.8.3"
   },
   "dependencies": {
     "babel-runtime": "^v7.0.0-beta.0",
