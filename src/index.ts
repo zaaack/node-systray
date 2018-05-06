@@ -1,9 +1,9 @@
-import child, { ChildProcess } from 'child_process'
-import path from 'path'
-import os from 'os'
-import fs from 'fs-extra'
-import EventEmitter from 'events'
-import readline, { ReadLine } from 'readline'
+import * as child from 'child_process'
+import * as path from 'path'
+import * as os from 'os'
+import * as fs from 'fs-extra'
+import * as EventEmitter from 'events'
+import * as readline from 'readline'
 import Debug from 'debug'
 
 const pkg = require('../package.json')
@@ -100,8 +100,8 @@ function updateCheckedInLinux(item: MenuItem) {
 
 export default class SysTray extends EventEmitter {
   protected _conf: Conf
-  protected _process: ChildProcess
-  protected _rl: ReadLine
+  protected _process: child.ChildProcess
+  protected _rl: readline.ReadLine
   protected _binPath: string
 
   constructor(conf: Conf) {

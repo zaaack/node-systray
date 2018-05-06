@@ -6,11 +6,10 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "build": "run-s clean build:lib doc && git add -A",
-    "build:lib": "tsc && cross-env NODE_ENV=production babel -x .es6,.js,.es,.jsx,.ts -s true -d ./lib -D ./src",
+    "build:lib": "tsc",
     "clean": "del ./lib/**",
     "lint": "tslint ./src/** --type-check -p ./tsconfig.json",
-    "build:test": "del ./test-dist && cross-env NODE_ENV=production babel -x .es6,.js,.es,.jsx,.ts -s true -d ./test-dist -D ./test",
-    "test": "run-p build:lib build:test && cross-env NODE_ENV=development DEBUG=systray* ava -s",
+    "test": "DEBUG=systray* mocha -r ts-node/register ./test/**/*.test.ts",
     "doc": "typedoc --theme minimal --out ./docs ./src && touch ./docs/.nojekyll",
     "cover": "cross-env NODE_ENV=development nyc ava",
     "preversion": "npm run build && git add -A"
@@ -37,38 +36,22 @@
   "devDependencies": {
     "@types/debug": "^0.0.30",
     "@types/fs-extra": "^4.0.2",
+    "@types/mocha": "^5.2.0",
     "@types/node": "^10.0.4",
-    "ava": "^0.22.0",
-    "babel-cli": "v7.0.0-beta.0",
-    "babel-eslint": "^8.0.0",
-    "babel-plugin-syntax-typescript": "^7.0.0-alpha.19",
-    "babel-plugin-transform-runtime": "^v7.0.0-beta.0",
-    "babel-preset-es2015": "^v7.0.0-beta.0",
-    "babel-preset-es2016": "^v7.0.0-beta.0",
-    "babel-preset-es2017": "^v7.0.0-beta.0",
-    "babel-preset-stage-0": "^v7.0.0-beta.0",
-    "babel-preset-typescript": "^v7.0.0-beta.0",
     "cross-env": "^5.0.5",
     "del-cli": "^1.1.0",
+    "mocha": "^5.1.1",
     "npm-run-all": "^4.0.2",
     "nyc": "^11.2.1",
     "pre-commit": "^1.2.2",
+    "ts-node": "^6.0.2",
     "tslint": "^5.7.0",
     "tslint-config-standard": "^6.0.1",
     "typedoc": "^0.8.0",
     "typescript": "^2.8.3"
   },
   "dependencies": {
-    "babel-runtime": "^v7.0.0-beta.0",
     "debug": "^3.0.1",
     "fs-extra": "^4.0.2"
-  },
-  "ava": {
-    "files": [
-      "test-dist/**/*.test.js"
-    ],
-    "require": [
-      "babel-register"
-    ]
   }
 }
