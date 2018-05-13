@@ -9,7 +9,7 @@
     "build:lib": "tsc",
     "clean": "del ./lib/**",
     "lint": "tslint ./src/** --type-check -p ./tsconfig.json",
-    "test": "DEBUG=systray* mocha -r ts-node/register ./test/**/*.test.ts",
+    "test": "cross-env DEBUG=systray* mocha -r ts-node/register ./test/**/*.test.ts",
     "doc": "typedoc --theme minimal --out ./docs ./src && touch ./docs/.nojekyll",
     "cover": "cross-env NODE_ENV=development nyc ava",
     "preversion": "npm run build && git add -A"
