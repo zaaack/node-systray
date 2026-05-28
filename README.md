@@ -17,9 +17,9 @@ import SysTray from 'systray'
 
 const systray = new SysTray({
     menu: {
-        // you should using .png icon in macOS/Linux, but .ico format in windows
+        // should be the content of .ico for windows and .ico/.jpg/.png for other platforms
         icon: "<base64 image string>",
-        title: "标题",
+        title: "App name",
         tooltip: "Tips",
         items: [{
             title: "aa",
